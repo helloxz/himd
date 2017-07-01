@@ -8,12 +8,12 @@
 	<meta name="keywords" content="" />
 	<meta name="description" content="" />
 	<link rel="stylesheet" href="https://libs.xiaoz.top/bootstrap/3.3.0/css/bootstrap.min.css">
-	<link rel="stylesheet" href="https://libs.xiaoz.top/simplemde/simplemde.min.css">
+	<link href="https://libs.xiaoz.top/simplemde/simplemde.min.css" rel="stylesheet">
 	<script src="https://libs.xiaoz.top/simplemde/simplemde.min.js"></script>
 	<script src = "https://libs.xiaoz.top/jquery/2.0.3/jquery-2.0.3.min.js"></script>
 	<style type = "text/css">
 		.CodeMirror {
-		    height: 520px;
+		    height: 380px;
 		}
 		#msg{
 			border:1px solid #DBDBDB;
@@ -28,7 +28,7 @@
 			display:none;
 		}
 		.interval {
-			margin-left:20px;
+			margin-left:10px;
 		}
 	</style>
 </head>
@@ -36,22 +36,25 @@
 	<div id="msg"></div>
 	<div class="container">
 		<div class="row" style = "margin-top:80px;">
-			<div class="col-lg-10 col-md-offset-1">
+			<div class="col-lg-8 col-md-offset-2">
 				<textarea name="mdeditor" id = "mdeditor" rows="40"><?php echo $mdcontent; ?></textarea>
 			</div>
 		</div>
 		<div class="row">
-			<div class="col-lg-10 col-md-offset-1">
-				<button class = "btn" id= "btn">保 存</button>
+			<div class="col-lg-8 col-md-offset-2">
+				<button type="button" class="btn btn-primary btn-sm" id = "btn">保 存</button>
+				<!--<button class = "btn" id= "btn">保 存</button>-->
 				<span class = "interval"></span>
-				<a href="../pre/index/<?php echo $user; ?>" target = "_blank">预 览</a>
+				<a href="../pre/index/<?php echo $user; ?>" target = "_blank" class="btn btn-primary btn-sm">预 览</a>
 				<span class = "interval"></span>
-				<a href="./index.php/home/rewrite" id = "rewrite">再写一篇</a>
+				<a href="./home/rewrite" id = "rewrite" class="btn btn-primary btn-sm">再写一篇</a>
 			</div>
 		</div>
 	</div>
 	<script>
-		var simplemde = new SimpleMDE({ element: $("#mdeditor")[0] });
+		var simplemde = new SimpleMDE({ 
+			element: $("#mdeditor")[0] 
+			});
 		//保存
 		function save() {
 			var content = simplemde.value();
