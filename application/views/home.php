@@ -66,7 +66,7 @@
 					return false;
 				}
 			else {
-				$.post("./index.php/home/save",{content:content},function(data,status) {
+				$.post("./home/save",{content:content},function(data,status) {
 				if((status == 'success') && (data == '200')) {
 					$("#msg").show();
 					$("#msg").css("color","#46B782");
