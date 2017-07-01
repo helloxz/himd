@@ -7,7 +7,7 @@
             
             //加载cookie辅助函数
             $this->load->helper('cookie');
-            $this->load->helper('Parsedown');
+            $this->load->helper('parsedown');
             $Parsedown = new Parsedown();
             $mdname = $uid;
 
