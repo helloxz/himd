@@ -39,6 +39,8 @@
             $apppath = $_SERVER['DOCUMENT_ROOT'];
             
             $content = $this->input->post('content');
+            //防止XSS
+            //$content = $this->security->xss_clean($content);
             $mdfile = fopen($apppath."/tmp/".$mdname.".md","w") or die ("权限不足！");
             fwrite($mdfile,$content);
             fclose($mdfile);

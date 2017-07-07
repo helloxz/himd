@@ -2,7 +2,7 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
 	<meta charset="utf-8" />
-	<title>Himd - 在线Markdown编辑器</title>
+	<title><?php echo $dtitle; ?> - 在线Markdown编辑器</title>
 	<meta name="generator" content="EverEdit" />
 	<meta name="author" content="" />
 	<meta name="keywords" content="" />
@@ -64,6 +64,9 @@
 		.htmlcontent p{
 			line-height:1.6em;
 		}
+		.h1, h1 {
+		    font-size: 26px;
+		}
 	</style>
 	<script>hljs.initHighlightingOnLoad();</script>
 </head>
@@ -75,12 +78,12 @@
 				<div class="col-lg-8">
 					<h1><a href="../../">Himd</a><small> - Markdown在线编辑器</small></h1>
 				</div>
-				<div class="col-lg-4 menu-right">
+				<!--<div class="col-lg-4 menu-right">
 					<div style = "margin-top:28px;">
 						<a href="">登 录</a> | 
 						<a href="">注 册</a>
 					</div>
-				</div>
+				</div>-->
 			</div>
 		</div>
 	</div>
@@ -88,6 +91,14 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-8 col-md-offset-2">
+				<div><h1><?php echo $dtitle; ?></h1></div>
+				<p>
+				<span class = "glyphicon glyphicon-user"></span> By <?php echo $user; ?> &nbsp;&nbsp;&nbsp;&nbsp; <span class = "glyphicon glyphicon-time"></span> 最后更新：
+				<?php
+					$utime = explode(' ',$utime);
+					echo $utime[0];
+				?>
+				</p><hr>
 				<div class = "htmlcontent"><?php echo $content; ?></div>
 			</div>
 		</div>

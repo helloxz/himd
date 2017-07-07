@@ -1,0 +1,74 @@
+body{
+	font-family:"Microsoft YaHei";
+}
+/*编辑器高度*/
+.CodeMirror {
+		    height: 380px;
+		}
+#msg{
+	border:1px solid #ACACAC;
+	background-color:#F9F9F9;
+	width:10%;
+	position:fixed;
+	left:45%;
+	margin-top:20px;
+	border-radius:3px;
+	line-height:2em;
+	text-align:center;
+	display:none;
+}
+.interval {
+	margin-left:10px;
+}
+.reg{
+	width:50%;
+	float:right;
+	text-align: right;
+	line-height:2em;
+}
+
+/*导航菜单*/
+#menu {
+	width:100%;
+	background-color: #DDD;
+	border-bottom:1px solid #C7C7C7;
+}
+
+#menu h1{
+	font-size:28px;
+}
+#menu a{
+	text-decoration:none;
+}
+.menu-right {
+	text-align:right;
+}
+
+/*页脚*/
+#footer {
+	width:100%;
+	background-color: #E7E7E7;
+	border-top:1px solid #C7C7C7;
+	font-size:13px;
+	margin-top:200px;
+	line-height:3em;
+	text-align:center;
+	border-bottom:1px solid #C7C7C7;
+}
+
+/*发送验证码*/
+.sendcode {
+    float: right;
+    margin-left: 20px;
+    width: 40%;
+    margin-top: -26px;
+}
+#home {
+	margin-top:20px;
+}
+#home p{
+	text-align:center;
+}
+#home p img{
+	border-radius: 50%;  
+}

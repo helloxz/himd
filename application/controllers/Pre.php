@@ -1,15 +1,21 @@
 <?php
     class Pre extends CI_Controller {
-        public function index($uid) {
+        public function index() {
             error_reporting(0);
+            $this->load->helper('cookie');
+            $uid = get_cookie('user');
+            //没有获取到uid
+            
             //获取项目路径
             $apppath = $_SERVER['DOCUMENT_ROOT'];
             
-            //加载cookie辅助函数
-            $this->load->helper('cookie');
-            $this->load->helper('parsedown');
-            $Parsedown = new Parsedown();
+            //$this->load->helper('parsedown');
+            //为避免XSS，改用HyperDown解析
+            $this->load->helper('parser');
+            //$Parsedown = new Parsedown();
             $mdname = $uid;
+
+            
 
             //文件路径
             $mdpath = $apppath."/tmp/".$mdname.".md";
@@ -37,8 +43,12 @@
             //关闭fclose
             fclose($fpmd);
 
-            //$data['content'] = str_replace("\n","<br />",$Parsedown->text($content));
-            $data['content'] = $Parsedown->text($content);
+            
+            //$data['content'] = $Parsedown->text($content);
+            $parser = new HyperDown\Parser;
+			$data['content'] = $parser->makeHtml($content);
+			$data['content'] = str_replace("<em>_</em>","<hr>",$data['content']);
+            
             
 
             $this->load->view('preview',$data);

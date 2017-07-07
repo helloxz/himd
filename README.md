@@ -1,24 +1,47 @@
 # himd
-Hi Markdown,一款在线Markdown编辑器，免费开源，简单适用。Hi Markdow适用于编写临时文档与在线分享。
+Hi Markdown,一款在线Markdown编辑器，免费开源，简单适用。Hi Markdown前身是[Markdown-Temp](https://github.com/helloxz/Markdown-Temp)，最近学习CodeIgniter框架，于是使用CI完全重写。
 
-Hi Markdown前身是[Markdown-Temp](https://github.com/helloxz/Markdown-Temp)，最近学习CodeIgniter框架，于是使用CI完全重写，并将Editor.md替换为SimpleMDE Markdown Editor.
-
-![](https://i.bk.tn/uploads/1707/010317191307.png)
 
 ### 关于开发
 * 编辑器使用[SimpleMDE - Markdown Editor](https://github.com/sparksuite/simplemde-markdown-editor)
-* 使用了[Parsedown](https://github.com/erusev/parsedown)进行渲染
+* 使用[HyperDow](https://github.com/SegmentFault/HyperDown)对Markdown进行渲染
 * 前端使用了BootStrap
 * 后端使用了CodeIgniter框架
 
-### 使用说明
-* 支持HTML预览
-* *Ctrl +S*快速保存
-* *F9*开启实时预览
-* *F11*全屏模式
+### 部署与安装
+1. 下载源码
+2. 将`himd.sql`导入数据库
+3. 修改数据库配置文件`application/config/database.php`
+4. 可能还需要修改`application/config/config.php`指定Session文件路径
+5. SMTP配置在`application/controllers/User.php`
 
-### 其它说明
-Himd定位与临时在线文档，每月10号/25号会定期对用户文档进行清理，最长可保存15天，打算长期保存的用户建议下载源码自行部署。
+如果您使用的Apache，请在.htaccess添加如下内容：
+```
+RewriteEngine on  
+RewriteCond $1 !^(index\.php|images|static|robots\.txt)
+RewriteRule ^(.*)$ /index.php/$1 [L]
+```
+
+如果使用的Nginx，添加如下配置到站点配置中：
+```
+location / {
+                try_files $uri $uri/ /index.php?$query_string;
+        }
+
+location ~ \.(md|sql)$ {
+   return 403;
+   deny all;
+}
+```
+
+### 已实现的功能
+* 用户注册、登录
+* 新增文档、修改、发布
+
+### 正在开发的功能
+* 管理员系统
+* 文件导出功能（.md .html）
+* 邀请好友功能
 
 ### 联系方式
 * Blog:[xiaoz.me](https://www.xiaoz.me/)
