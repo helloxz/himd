@@ -1,6 +1,9 @@
 # himd
 Hi Markdown,一款在线Markdown编辑器，免费开源，简单适用。Hi Markdown前身是[Markdown-Temp](https://github.com/helloxz/Markdown-Temp)，最近学习CodeIgniter框架，于是使用CI完全重写。
 
+### Demo
+* [http://markdown.win/](http://markdown.win/)
+
 
 ### 关于开发
 * 编辑器使用[SimpleMDE - Markdown Editor](https://github.com/sparksuite/simplemde-markdown-editor)
